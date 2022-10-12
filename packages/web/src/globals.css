@@ -1,0 +1,47 @@
+body {
+  font-family: 'Lexend Deca', Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--cb-body-color);
+  background-color: var(--cb-body-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* Light theme */
+body {
+  --cb-body-bg: #fff;
+  --cb-body-color: #212529;
+
+  --cb-second-bg: #f1e1f4;
+  --cb-second-bg2: #f8f0fa;
+  --cb-second-bg3: #f8c2fa;
+  --cb-second-color: #442b40;
+
+  --cb-primary: #e9eff8;
+}
+
+/* Dark theme */
+body[data-theme='dark'] {
+  --cb-body-bg: #212529;
+  --cb-body-color: #fff;
+  --cb-body-second: #edecef;
+
+  --cb-second-bg: #3c2d3c;
+  --cb-second-bg2: #694567;
+  --cb-second-bg3: #493548;
+  --cb-second-color: #edd3e9;
+
+  --cb-primary: #e9eff8;
+}
