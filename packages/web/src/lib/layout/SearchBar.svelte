@@ -1,4 +1,22 @@
-<input class="input" type="text" placeholder="Search for recipes..." />
+<script lang="ts">
+  import { goto, params } from '@roxi/routify'
+  let query = ''
+  $: query = $params.q
+
+  function search() {
+    $goto('/search', {
+      q: query,
+    })
+  }
+</script>
+
+<input
+  class="input"
+  type="text"
+  placeholder="Search for recipes..."
+  bind:value={query}
+  on:input={search}
+/>
 
 <style lang="scss">
   .input {

@@ -1,11 +1,13 @@
 <script lang="ts">
+  import { url } from '@roxi/routify'
   import Button from '../ui/Button.svelte'
   import SearchBar from './SearchBar.svelte'
   import ThemeSwitcher from './ThemeSwitcher.svelte'
 </script>
 
 <nav>
-  <div class="logo">Cookbook</div>
+  <div class="logo"><a href={$url('/')}>Cookbook </a></div>
+
   <SearchBar />
   <div class="buttons">
     <ThemeSwitcher />
@@ -28,7 +30,11 @@
   .logo {
     font-weight: 200;
     font-size: 22px;
-    text-decoration: underline var(--cb-second-bg);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   .buttons {
