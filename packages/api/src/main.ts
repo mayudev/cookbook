@@ -1,9 +1,22 @@
 import express from 'express'
+import RecipesController from './controller/recipes'
+import { initalizeDatabase } from './database'
 
 const app = express()
 
-app.get('/', (req, res) => {
-  res.send('as')
-})
+class Server {
+  private configureRoutes() {
+    app.use('/api/recipes', new RecipesController().router)
+  }
 
-app.listen(process.env.API_PORT || 8080)
+  async run() {
+    await initalizeDatabase()
+    this.configureRoutes()
+
+    const port = process.env.API_PORT || 8080
+    app.listen(port)
+    console.log('Server running at :' + port)
+  }
+}
+
+new Server().run()

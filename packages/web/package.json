@@ -24,6 +24,7 @@
     "vite": "^3.1.0"
   },
   "dependencies": {
+    "@fontsource/arvo": "^4.5.7",
     "@fontsource/lexend-deca": "^4.5.12",
     "@iconify/svelte": "^3.0.0",
     "sass": "^1.55.0"

@@ -1,0 +1,9 @@
+services:
+  database:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=dev
+      - POSTGRES_DB=cookbook
+    ports:
+      - 5432:5432
