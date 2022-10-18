@@ -28,8 +28,8 @@
   }
 
   .logo {
-    font-weight: 200;
-    font-size: 22px;
+    font-size: 24px;
+    font-family: 'Arvo', serif;
 
     a {
       color: inherit;
