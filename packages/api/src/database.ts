@@ -1,6 +1,8 @@
 import { DataSource } from 'typeorm'
 import { Recipe } from './entity/Recipe'
 
+export const entities = [Recipe]
+
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: process.env.DB_HOST || 'localhost',
@@ -8,7 +10,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME || 'postgres',
   password: process.env.DB_PASSWORD || 'dev',
   database: process.env.DB_NAME || 'cookbook',
-  entities: [Recipe],
+  entities,
   synchronize: true,
   logging: true,
 })
