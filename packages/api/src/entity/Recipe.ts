@@ -1,7 +1,8 @@
-import { BaseEntity, Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Meta } from './Meta'
 
 @Entity()
-export class Recipe extends BaseEntity {
+export class Recipe extends Meta {
   @PrimaryColumn('uuid')
   id: string
 

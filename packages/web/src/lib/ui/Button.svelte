@@ -1,9 +1,16 @@
 <script lang="ts">
   export let isIcon: boolean = false
+  export let hasIcon: boolean = false
+  export let big: boolean = false
   export let title: string = ''
 </script>
 
-<button class="btn {isIcon && 'btn-icon'}" {title} on:click>
+<button
+  class="btn {isIcon && 'btn-icon'} {big && 'btn-big'} {hasIcon &&
+    'btn-withicon'}"
+  {title}
+  on:click
+>
   <slot />
 </button>
 
@@ -37,5 +44,16 @@
     width: 48px;
     padding: 0;
     align-items: center;
+  }
+
+  .btn-withicon {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .btn-big {
+    font-size: 20px;
+    padding: 1rem 5rem;
   }
 </style>

@@ -11,7 +11,9 @@
   <SearchBar />
   <div class="buttons">
     <ThemeSwitcher />
-    <Button>Login</Button>
+    <a href={$url('/login')}>
+      <Button>Login</Button>
+    </a>
   </div>
 </nav>
 
