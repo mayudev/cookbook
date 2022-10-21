@@ -2,7 +2,30 @@
   import Input from '../lib/ui/Input.svelte'
   import Button from '../lib/ui/Button.svelte'
   import Icon from '@iconify/svelte'
+  import Popup from '../lib/ui/Popup.svelte'
+
+  let email = ''
+  let popupShown = true
+
+  function passwordless() {
+    popupShown = !popupShown
+  }
+
+  function closeDialog() {
+    popupShown = false
+  }
 </script>
+
+{#if popupShown}
+  <Popup on:close={closeDialog}>
+    <h1>Login</h1>
+    <p>
+      A message was sent to your e-mail. Please enter the code you received
+      below to continue:
+    </p>
+    <Input />
+  </Popup>
+{/if}
 
 <main class="page">
   <div class="pane presentation">
@@ -13,11 +36,14 @@
     </div>
   </div>
   <div class="pane login">
-    <Icon icon="ic:twotone-login" width="64" />
-    <h1>Login</h1>
-    <Input placeholder="E-mail address or username (if registered)" />
+    <h1>Log in</h1>
+    <Input
+      placeholder="E-mail address or username"
+      bind:value={email}
+      on:return={passwordless}
+    />
     <p>
-      <Button>Continue</Button>
+      <Button on:click={passwordless}>Continue</Button>
     </p>
     <p>or</p>
     <p>
@@ -25,9 +51,6 @@
         <Icon icon="akar-icons:google-fill" />
         Login with Google</Button
       >
-    </p>
-    <p>
-      <Button big>Login with Something Else</Button>
     </p>
     <p>By registering you accept the <a href="/">Terms of Service</a>.</p>
   </div>
@@ -76,6 +99,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     p {
       margin: 0.75rem 0;
