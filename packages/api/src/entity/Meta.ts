@@ -1,13 +1,10 @@
-import { BaseEntity, Column } from 'typeorm'
+import { BaseEntity, CreateDateColumn, UpdateDateColumn } from 'typeorm'
+import { IMeta } from 'types'
 
-export class Meta extends BaseEntity {
-  @Column('timestamp', {
-    nullable: false,
-  })
-  createdAt: number
+export class Meta extends BaseEntity implements IMeta {
+  @CreateDateColumn()
+  createdAt: Date
 
-  @Column('timestamp', {
-    nullable: false,
-  })
-  updatedAt: number
+  @UpdateDateColumn()
+  updatedAt: Date
 }

@@ -1,7 +1,8 @@
 import { DataSource } from 'typeorm'
 import { Recipe } from './entity/Recipe'
+import { Users } from './entity/Users'
 
-export const entities = [Recipe]
+export const entities = [Recipe, Users]
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -11,13 +12,12 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD || 'dev',
   database: process.env.DB_NAME || 'cookbook',
   entities,
-  synchronize: true,
-  logging: true,
 })
 
 export async function initalizeDatabase() {
   try {
     await AppDataSource.initialize()
+    await AppDataSource.synchronize()
   } catch (e) {
     console.error('initializing database failed')
     console.error(e)
