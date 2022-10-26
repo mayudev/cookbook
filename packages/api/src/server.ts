@@ -1,4 +1,5 @@
 import express from 'express'
+import AuthController from './controller/auth'
 import RecipesController from './controller/recipes'
 
 const app = express()
@@ -11,6 +12,7 @@ export default class Server {
       })
     })
     app.use('/api/recipes', new RecipesController().router)
+    app.use('/api/auth', new AuthController().router)
   }
 
   setup() {
