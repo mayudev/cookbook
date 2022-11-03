@@ -16,7 +16,9 @@ body {
 }
 
 body {
+  --theme-trans: 300ms;
   margin: 0;
+  transition: background var(--theme-trans), color var(--theme-trans);
 }
 
 /* Light theme */

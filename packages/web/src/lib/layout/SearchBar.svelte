@@ -31,4 +31,8 @@
     border: none;
     outline: none;
   }
+
+  :global(.trans .input) {
+    transition: var(--theme-trans);
+  }
 </style>

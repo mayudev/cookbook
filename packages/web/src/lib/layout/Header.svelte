@@ -29,6 +29,10 @@
     padding: 1rem 2rem;
   }
 
+  :global(.trans nav) {
+    transition: var(--theme-trans);
+  }
+
   .logo {
     font-size: 24px;
     font-family: 'Arvo', serif;

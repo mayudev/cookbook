@@ -94,6 +94,10 @@
     }
   }
 
+  :global(.trans .presentation-text) {
+    transition: var(--theme-trans);
+  }
+
   .login {
     margin: 1rem;
     display: flex;
